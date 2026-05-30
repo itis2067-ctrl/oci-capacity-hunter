@@ -4,16 +4,17 @@ import sys
 import oci
 
 # Retrieve protected configuration from GitHub Secrets
-COMPARTMENT_ID = os.environ.get("OCI_COMPARTMENT_ID")
-SUBNET_ID = os.environ.get("OCI_SUBNET_ID")
-IMAGE_ID = os.environ.get("OCI_IMAGE_ID")
-SSH_PUBLIC_KEY = os.environ.get("OCI_SSH_PUBLIC_KEY")
+COMPARTMENT_ID = os.environ.get("OCI_COMPARTMENT_ID", "").strip()
+SUBNET_ID = os.environ.get("OCI_SUBNET_ID", "").strip()
+IMAGE_ID = os.environ.get("OCI_IMAGE_ID", "").strip()
+SSH_PUBLIC_KEY = os.environ.get("OCI_SSH_PUBLIC_KEY", "").strip()
 
+# Configuration dictionary with .strip() to safely remove accidental copy-paste newlines
 config = {
-    "user": os.environ.get("OCI_USER_OCID"),
-    "key_content": os.environ.get("OCI_PRIVATE_KEY"),
-    "fingerprint": os.environ.get("OCI_FINGERPRINT"),
-    "tenancy": os.environ.get("OCI_TENANCY_OCID"),
+    "user": os.environ.get("OCI_USER_OCID", "").strip(),
+    "key_content": os.environ.get("OCI_PRIVATE_KEY", "").strip(),
+    "fingerprint": os.environ.get("OCI_FINGERPRINT", "").strip(),
+    "tenancy": os.environ.get("OCI_TENANCY_OCID", "").strip(),
     "region": "uk-london-1"  # Fixed to your locked London region
 }
 
