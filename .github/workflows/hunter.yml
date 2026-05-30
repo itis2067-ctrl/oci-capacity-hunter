@@ -2,8 +2,8 @@ name: OCI Capacity Hunter
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Automatically runs every single hour on the hour
-  workflow_dispatch:     # Gives you a button to start it manually whenever you want
+    - cron: '15,45 * * * *'  # Fires at minute 15 and minute 45 of every hour, skipping traffic jams
+  workflow_dispatch:        # Keeps your manual trigger button active
 
 jobs:
   hunt:
