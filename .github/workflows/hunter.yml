@@ -2,8 +2,8 @@ name: OCI Capacity Hunter
 
 on:
   schedule:
-    - cron: '15,45 * * * *'  # Fires at minute 15 and minute 45 of every hour, skipping traffic jams
-  workflow_dispatch:        # Keeps your manual trigger button active
+    - cron: '15,45 * * * *'
+  workflow_dispatch:
 
 jobs:
   hunt:
